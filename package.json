@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Transform Mapnik XML to Mapbox GL JSON",
   "main": "index.js",
+  "license": "MIT",
   "bin": {
     "mapnik-xml-to-mapbox-gl-json": "./bin/mapnik-xml-to-mapbox-gl-json"
   },

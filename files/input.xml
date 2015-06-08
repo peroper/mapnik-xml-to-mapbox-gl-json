@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Map>
+<Map background-color="#ffffff" font-directory="./fonts" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" maximum-extent="-20037508.34,-20037508.34,20037508.34,20037508.34">
+    <Layer name="ground">
+        <StyleName>ground</StyleName>
+    </Layer>
+     <Layer name="road">
+        <StyleName>road</StyleName>
+    </Layer>
+
+    <Style name="ground" filter-mode="first">
+        <Rule>
+            <MaxScaleDenominator>12500</MaxScaleDenominator>
+            <Filter>([type] = 'snow')</Filter>
+            <LineSymbolizer stroke-width="8" stroke-dasharray="44, 12" stroke="#1ca8fd"/>
+            <PolygonSymbolizer fill="#ffffff"/>
+        </Rule>
+        <Rule>
+            <MaxScaleDenominator>25000</MaxScaleDenominator>
+            <MinScaleDenominator>12500</MinScaleDenominator>
+            <Filter>([type] = 'forest')</Filter>
+            <LineSymbolizer stroke-width="5" stroke-dasharray="22, 6" stroke="#1ca8fd"/>
+            <PolygonSymbolizer fill="#00ff00"/>
+        </Rule>
+        <Rule>
+            <MaxScaleDenominator>50000</MaxScaleDenominator>
+            <MinScaleDenominator>25000</MinScaleDenominator>
+            <Filter>([type] = 'field')</Filter>
+            <LineSymbolizer stroke-width="2.5" stroke-dasharray="11, 3" stroke="#1ca8fd"/>
+            <PolygonSymbolizer fill="#009900"/>
+        </Rule>
+    </Style>
+    <Style name="road" filter-mode="first">
+        <Rule>
+            <MaxScaleDenominator>5000</MaxScaleDenominator>
+            <Filter>([type] = 'highway')</Filter>
+            <LineSymbolizer stroke-width="3" stroke="#cccac9"/>
+        </Rule>
+        <Rule>
+            <MaxScaleDenominator>12500</MaxScaleDenominator>
+            <MinScaleDenominator>5000</MinScaleDenominator>
+            <Filter>([type] = 'street')</Filter>
+            <LineSymbolizer stroke-width="2" stroke="#cccac9"/>
+        </Rule>
+    </Style>
+</Map>

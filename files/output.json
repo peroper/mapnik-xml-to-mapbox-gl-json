@@ -1,0 +1,124 @@
+{
+    "version": 7,
+    "constants": {},
+    "sources": {
+        "mapbox": {
+            "type": "vector",
+            "url": "mapbox://mapbox.mapbox-streets-v6"
+        }
+    },
+    "sprite": "https://www.mapbox.com/mapbox-gl-styles/sprites/sprite",
+    "glyphs": "mapbox://fontstack/{fontstack}/{range}.pbf",
+    "layers": [
+        {
+            "id": "ground-ground-==-type-snow",
+            "type": "fill",
+            "source-layer": "ground",
+            "paint": {
+                "fill-color": "#ffffff"
+            },
+            "source": "fastighetskartan",
+            "filter": [
+                "==",
+                "type",
+                "snow"
+            ]
+        },
+        {
+            "id": "ground-ground-==-type-forest",
+            "type": "fill",
+            "source-layer": "ground",
+            "paint": {
+                "fill-color": {
+                    "stops": [
+                        [
+                            15,
+                            "#00ff00"
+                        ],
+                        [
+                            16,
+                            "#00ff00"
+                        ]
+                    ]
+                }
+            },
+            "source": "fastighetskartan",
+            "filter": [
+                "==",
+                "type",
+                "forest"
+            ],
+            "maxzoom": 16
+        },
+        {
+            "id": "ground-ground-==-type-field",
+            "type": "fill",
+            "source-layer": "ground",
+            "paint": {
+                "fill-color": {
+                    "stops": [
+                        [
+                            14,
+                            "#009900"
+                        ],
+                        [
+                            15,
+                            "#009900"
+                        ]
+                    ]
+                }
+            },
+            "source": "fastighetskartan",
+            "filter": [
+                "==",
+                "type",
+                "field"
+            ],
+            "maxzoom": 15
+        },
+        {
+            "id": "road-road-==-type-highway",
+            "type": "line",
+            "source-layer": "road",
+            "paint": {
+                "line-color": "#cccac9",
+                "line-width": 3
+            },
+            "source": "fastighetskartan",
+            "filter": [
+                "==",
+                "type",
+                "highway"
+            ],
+            "layout": {}
+        },
+        {
+            "id": "road-road-==-type-street",
+            "type": "line",
+            "source-layer": "road",
+            "paint": {
+                "line-color": "#cccac9",
+                "line-width": {
+                    "stops": [
+                        [
+                            16,
+                            2
+                        ],
+                        [
+                            17,
+                            2
+                        ]
+                    ]
+                }
+            },
+            "source": "fastighetskartan",
+            "filter": [
+                "==",
+                "type",
+                "street"
+            ],
+            "maxzoom": 17,
+            "layout": {}
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+var generateJSON = require('../'),
+    argv = require('optimist').argv,
+    fs = require('fs'),
+    xml2js = require('xml2js'),
+    validate = require('mapbox-gl-style-lint').validate;
+
+if (argv._.length != 3) {
+    return console.error('Usage: mapnik-xml-to-mapbox-gl-json settings.json mapnik.xml style.json');
+}
+settings = require(__dirname + '/../' + argv._[0]);
+
+fs.readFile(argv._[1], function(err, data) {
+
+    var xmlParser = new xml2js.Parser({ explicitRoot: false, mergeAttrs: true, explicitArray: false});
+    xmlParser.parseString(data, function (err, result) {
+
+
+        generateJSON(result, settings, function(err, res) {
+            if (err) return console.error(err);
+            else {
+                if (argv.v)
+                    console.log(validate(JSON.stringify(res)));
+                fs.writeFile(argv._[2], JSON.stringify(res, null, 4));
+            }
+        });
+    });
+});
+

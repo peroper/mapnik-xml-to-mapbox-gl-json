@@ -1,0 +1,36 @@
+{
+  "name": "mapnik-xml-to-mapbox-gl-json",
+  "version": "0.0.1",
+  "description": "Transform Mapnik XML to Mapbox GL JSON",
+  "main": "index.js",
+  "bin": {
+    "mapnik-xml-to-mapbox-gl-json": "./bin/mapnik-xml-to-mapbox-gl-json"
+  },
+  "contributors": [
+    {
+      "name" : "Oskar Eriksson",
+      "email" : "oskar.eriksson9@gmail.com",
+      "url" : "www.oskar-eriksson.se"
+    },
+    {
+      "name" : "Emil Rydkvist",
+      "email" : "emiry224@student.liu.se",
+      "url" : "www.emilrydkvist.se"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/peroper/mapnik-xml-to-mapbox-gl-json.git"
+  },
+  "dependencies": {
+    "xml2js": "0.4.4",
+    "minimist": "1.1.0",
+    "underscore": "1.7.0",
+    "mapbox-gl-style-lint": "7.1.0",
+    "optimist": "0.6.1"
+  },
+  "devDependencies": {
+    "mocha": "2.1.0",
+    "should": "5.0.1"
+  }
+}

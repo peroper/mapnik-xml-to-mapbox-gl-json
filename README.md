@@ -1,9 +1,16 @@
 # Mapnik XML to Mapbox GL JSON
 
-Converts Mapnik XML styles into the Mapbox GL JSON format
+Converts Mapnik XML styles into the [Mapbox GL JSON format](https://www.mapbox.com/mapbox-gl-style-spec/)
 
+[![npm version](https://badge.fury.io/js/mapnik-xml-to-mapbox-gl-json.svg)](http://badge.fury.io/js/mapnik-xml-to-mapbox-gl-json)
 
 ## Installation
+```
+$ npm install -g mapnik-xml-to-mapbox-gl-json
+```
+
+Or download source and run
+
 ```
 $ npm install
 ```
@@ -17,6 +24,7 @@ $ ./bin/mapnik-xml-to-mapbox-gl-json bin/settings.json files/input.xml files/out
 
 ### Optional flags
 **-v**  Validates generated JSON using [mapbox-gl-style-lint](https://github.com/mapbox/mapbox-gl-style-lint)
+
 **-c**  Adds an 'paint.hide-*' class to all layers where the asterix is the layers 'source-layer'
 
 

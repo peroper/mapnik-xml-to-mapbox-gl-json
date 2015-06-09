@@ -1,8 +1,8 @@
+[![npm version](https://badge.fury.io/js/mapnik-xml-to-mapbox-gl-json.svg)](http://badge.fury.io/js/mapnik-xml-to-mapbox-gl-json)
+
 # Mapnik XML to Mapbox GL JSON
 
 Converts Mapnik XML styles into the [Mapbox GL JSON format](https://www.mapbox.com/mapbox-gl-style-spec/)
-
-[![npm version](https://badge.fury.io/js/mapnik-xml-to-mapbox-gl-json.svg)](http://badge.fury.io/js/mapnik-xml-to-mapbox-gl-json)
 
 ## Installation
 ```

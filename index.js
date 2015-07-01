@@ -15,7 +15,7 @@ function generateJSON(inputXML, settings, callback) {
     preprocess(inputXML);
 
     var outputJSON = settings;
-    outputJSON["layers"] = layers(inputXML);
+    outputJSON["layers"] = layers(inputXML, settings);
 
     postprocess(outputJSON);
 

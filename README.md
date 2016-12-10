@@ -16,10 +16,12 @@ $ npm install
 ```
 
 ## Usage
-mapnik-xml-to-mapbox-gl-json [settings file] [input XML file] [output JSON file]
+mapnik-xml-to-mapbox-gl-json `<mapnik_input_file.xml>` `<output_file.json>` `[optional_settings_file.json]`
+
+> The settings file must be valid JSON and follow the [Mapbox GL style specification](https://www.mapbox.com/mapbox-gl-style-spec/). If a settings parameter isn't specified, the settings file from `bin/settings.json` will be used. 
 
 ```
-$ ./bin/mapnik-xml-to-mapbox-gl-json bin/settings.json files/input.xml files/output.json
+$ ./bin/mapnik-xml-to-mapbox-gl-json files/input.xml files/output.json bin/settings.json
 ```
 
 ### Optional flags

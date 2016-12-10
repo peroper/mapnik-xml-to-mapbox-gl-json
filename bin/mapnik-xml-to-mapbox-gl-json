@@ -3,15 +3,48 @@
 var generateJSON = require('../'),
     argv = require('optimist').argv,
     fs = require('fs'),
+    path = require('path'),
     xml2js = require('xml2js'),
-    validate = require('mapbox-gl-style-lint').validate;
+    validate = require('mapbox-gl-style-lint').validate,
+    onError = function (msg) {
+        if (msg) {
+            console.log(msg + '\n');
+        }
+        console.error('Usage: mapnik-xml-to-mapbox-gl-json mapnik.xml style.json [settings.json]');
+        process.exit();
+    },
+    defaultSettings = require(path.resolve(__dirname, 'settings.json')),
+    settings,
+    settingsInput,
+    mapnikInput,
+    outputJSON,
+    tmpStr;
 
-if (argv._.length != 3) {
-    return console.error('Usage: mapnik-xml-to-mapbox-gl-json settings.json mapnik.xml style.json');
+if (argv._.length < 2 || argv._.length > 3) {
+    onError();
+} else if (argv._.length === 3) {
+    settingsInput = argv._[2];
+    if (fs.existsSync(path.resolve(settingsInput))) {
+        tmpStr = fs.readFileSync(path.resolve(settingsInput));
+        if (tmpStr) {
+            try {
+                settings = JSON.parse(tmpStr);
+            } catch(e) {
+                onError('Error: settings file contains invalid JSON notation!');
+            }
+        } else {
+            onError('Error: failed to read ' + settingsInput);
+        }
+    } else {
+        onError('Error: invalid path to settings JSON file!');
+    }
 }
-settings = require(__dirname + '/../' + argv._[0]);
 
-fs.readFile(argv._[1], function(err, data) {
+mapnikInput = argv._[0];
+outputJSON = argv._[1];
+settings = settings || defaultSettings;
+
+fs.readFile(mapnikInput, function(err, data) {
 
     var xmlParser = new xml2js.Parser({ explicitRoot: false, mergeAttrs: true, explicitArray: false});
     xmlParser.parseString(data, function (err, result) {
@@ -22,7 +55,7 @@ fs.readFile(argv._[1], function(err, data) {
             else {
                 if (argv.v)
                     console.log(validate(JSON.stringify(res)));
-                fs.writeFile(argv._[2], JSON.stringify(res, null, 4));
+                fs.writeFile(outputJSON, JSON.stringify(res, null, 4));
             }
         });
     });
